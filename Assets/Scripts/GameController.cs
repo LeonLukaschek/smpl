@@ -27,7 +27,11 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        SpawnTiles(tileEntered);
+        if (spawnedTiles.Count < 100)
+        {
+            SpawnTiles(tileEntered);
+        }
+        Debug.Log(spawnedTiles.Count);
 
         ResetForSpawn();
     }
@@ -35,7 +39,7 @@ public class GameController : MonoBehaviour
     public void SpawnTiles(int tileCount = 3)
     {
         int randNumber = Random.Range(0, 3);
-        if(spawnedTilesCount < tileCount)
+        if (spawnedTilesCount < tileCount)
         {
 
             if (!leftSpawned)
@@ -68,8 +72,6 @@ public class GameController : MonoBehaviour
             }
 
             offset += 20;
-            Debug.Log("GameController.spawnTiles called");
-            Debug.Log(spawnedTilesCount);
         }
 
 

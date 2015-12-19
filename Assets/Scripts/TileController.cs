@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TileController : MonoBehaviour
 {
+    public GameController controller;
+
     Color[] colors = new Color[9];
 
     public Renderer rend;
@@ -20,13 +22,16 @@ public class TileController : MonoBehaviour
         colors[6] = Color.blue;
         colors[7] = Color.black;
         colors[8] = Color.gray;
+
     }
 
     void Start()
     {
         rend = GetComponent<Renderer>();
-        int randomNum = Random.Range(0, 8);
-        rend.material.color = colors[randomNum];
+
+        int random = Random.Range(0, 9);
+
+        rend.material.color = new Color(Random.value, Random.value, Random.value);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 

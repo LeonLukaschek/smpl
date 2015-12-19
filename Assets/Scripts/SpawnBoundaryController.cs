@@ -28,7 +28,6 @@ public class SpawnBoundaryController : MonoBehaviour
     {
         if (counter == 3)
         {
-            Debug.Log("Spawing new tiles via spawnboundarycontroller");
             var gc = GameObject.Find("GameController");
             gc.GetComponent<GameController>().tileEntered += 3;
         }
