@@ -19,11 +19,9 @@ public class ScoreSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + Mathf.Round(score);
+        scoreText.text = Mathf.Round(score).ToString();
 
         score += (pointsPerSecond * player.speed) * Time.deltaTime;
-
-
     }
 
 

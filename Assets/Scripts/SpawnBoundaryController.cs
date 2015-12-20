@@ -15,7 +15,11 @@ public class SpawnBoundaryController : MonoBehaviour
 
     void Update()
     {
-
+        if (counter == 3)
+        {
+            var gc = GameObject.Find("GameController");
+            gc.GetComponent<GameController>().tileEntered += 3;
+        }
     }
 
     void LateUpdate()
@@ -26,11 +30,7 @@ public class SpawnBoundaryController : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (counter == 3)
-        {
-            var gc = GameObject.Find("GameController");
-            gc.GetComponent<GameController>().tileEntered += 3;
-        }
+       
         counter --;
     }
 

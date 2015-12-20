@@ -27,10 +27,9 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (spawnedTiles.Count < 100)
-        {
-            SpawnTiles(tileEntered);
-        }
+
+        SpawnTiles(tileEntered);
+
         Debug.Log(spawnedTiles.Count);
 
         ResetForSpawn();
