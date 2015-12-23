@@ -6,7 +6,6 @@ public class StartGame : MonoBehaviour {
 
     public void LoadLevel()
     {
-        Debug.Log("Load level game");
         Application.LoadLevel("game");
 
     }

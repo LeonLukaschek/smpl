@@ -1,40 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TileController : MonoBehaviour
-{
-
-    Color[] colors = new Color[9];
+public class Obstacle : MonoBehaviour {
 
     public Renderer rend;
 
     private GameObject player;
 
+    Color[] colors = new Color[9];
+
     void Awake()
     {
-
-        colors[0] = Color.cyan;
-        colors[1] = Color.red;
-        colors[2] = Color.green;
-        colors[3] = new Color(255, 165, 0);
-        colors[4] = Color.yellow;
-        colors[5] = Color.white;
-        colors[6] = Color.blue;
-        colors[7] = Color.black;
-        colors[8] = Color.gray;
-
+        colors[0] = Color.red;
     }
 
-    void Start()
-    {
-        rend = GetComponent<Renderer>();
-
-        int random = Random.Range(0, 9);
-
-        rend.material.color = new Color(Random.value, Random.value, Random.value);
+    void Start () {
+        rend.material.color = colors[0];
         player = GameObject.FindGameObjectWithTag("Player");
     }
-
 
     void FixedUpdate()
     {
@@ -54,5 +37,4 @@ public class TileController : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
     }
-
 }

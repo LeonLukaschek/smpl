@@ -13,6 +13,7 @@ public class Playercontroller : MonoBehaviour
     public currentState currentPosition;
 
     public Text text;
+    public ParticleSystem particle;
 
     Rigidbody rb;
     private float curSpeed;
@@ -22,6 +23,10 @@ public class Playercontroller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentPosition = currentState.Middle;
         curSpeed = speed;
+        text.transform.localScale = new Vector3(2f, 2f, 2f);
+        //particle
+        particle.enableEmission = false;
+
     }
 
     void Update()
@@ -69,10 +74,12 @@ public class Playercontroller : MonoBehaviour
         {
             speed = nitroSpeed;
             text.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            particle.enableEmission = true;
         }else if (Input.GetKeyUp(KeyCode.Space))
         {
             speed = curSpeed;
-            text.transform.localScale = new Vector3(2, 2, 2);
+            text.transform.localScale = new Vector3(2f, 2f, 2f);
+            particle.enableEmission = false;
         }
 
 
