@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
         ResetTilesForSpawn();
         if(obstacleOffset < offset)
         {
-            obstacleOffset += 20;
+            obstacleOffset += 5;
         }
     }
 
@@ -64,15 +64,15 @@ public class GameController : MonoBehaviour
             obs1.transform.SetParent(obstacleHolder.gameObject.transform);
             spawnedObstacles.Add(obs1);
             spawnedObstaclesCount++;
-            obstacleOffset += 10;
+            obstacleOffset += 5;
         }
-        if (!ObsMiddleSpawned && randomNumber == 1 && spawnedObstaclesCount > 1)
+        if (!ObsMiddleSpawned && randomNumber == 1)
         {
             GameObject obs2 = Instantiate(obstacle.gameObject, new Vector3(0, 0.6f, obstacleOffset), Quaternion.identity) as GameObject;
             obs2.transform.SetParent(obstacleHolder.gameObject.transform);
             spawnedObstacles.Add(obs2);
             spawnedObstaclesCount++;
-            obstacleOffset += 10;
+            obstacleOffset += 5;
         }
         if (!ObsRightSpawned && randomNumber == 2)
         {
@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
             obs3.transform.SetParent(obstacleHolder.gameObject.transform);
             spawnedObstacles.Add(obs3);
             spawnedObstaclesCount++;
-            obstacleOffset += 10;
+            obstacleOffset += 5;
         }
     }
 

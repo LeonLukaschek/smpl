@@ -23,7 +23,6 @@ public class Playercontroller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentPosition = currentState.Middle;
         curSpeed = speed;
-        text.transform.localScale = new Vector3(2f, 2f, 2f);
         //particle
         particle.enableEmission = false;
 
@@ -73,12 +72,10 @@ public class Playercontroller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             speed = nitroSpeed;
-            text.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
             particle.enableEmission = true;
         }else if (Input.GetKeyUp(KeyCode.Space))
         {
             speed = curSpeed;
-            text.transform.localScale = new Vector3(2f, 2f, 2f);
             particle.enableEmission = false;
         }
 
