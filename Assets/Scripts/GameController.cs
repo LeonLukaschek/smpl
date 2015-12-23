@@ -36,22 +36,23 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        obstacleOffset = 20;
     }
 
     void FixedUpdate()
     {
 
         SpawnTiles(tileEntered);
-
-        //SpawnObstacle();
-
-        //ResetObstaclesForSpawn();
         ResetTilesForSpawn();
+        if(obstacleOffset < offset)
+        {
+            obstacleOffset += 20;
+        }
     }
 
     void SpawnObstacle()
     {
-        int randomNumber = Random.Range(0, 2);
+        int randomNumber = Random.Range(0, 3);
 
 
         //Reset if every lane has been spawned
@@ -63,7 +64,7 @@ public class GameController : MonoBehaviour
             obs1.transform.SetParent(obstacleHolder.gameObject.transform);
             spawnedObstacles.Add(obs1);
             spawnedObstaclesCount++;
-            obstacleOffset += 20;
+            obstacleOffset += 10;
         }
         if (!ObsMiddleSpawned && randomNumber == 1 && spawnedObstaclesCount > 1)
         {
@@ -71,7 +72,7 @@ public class GameController : MonoBehaviour
             obs2.transform.SetParent(obstacleHolder.gameObject.transform);
             spawnedObstacles.Add(obs2);
             spawnedObstaclesCount++;
-            obstacleOffset += 20;
+            obstacleOffset += 10;
         }
         if (!ObsRightSpawned && randomNumber == 2)
         {
@@ -79,7 +80,7 @@ public class GameController : MonoBehaviour
             obs3.transform.SetParent(obstacleHolder.gameObject.transform);
             spawnedObstacles.Add(obs3);
             spawnedObstaclesCount++;
-            obstacleOffset += 20;
+            obstacleOffset += 10;
         }
     }
 
@@ -118,8 +119,9 @@ public class GameController : MonoBehaviour
                 spawnedTiles.Add(tile3);
 
             }
-            SpawnObstacle();
+
             offset += 20;
+            SpawnObstacle();
         }
 
 
