@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public GameObject tileHolder;
     public GameObject obstacleHolder;
 
+    public AudioSource music;
 
     public int offset;
     public int obstacleOffset;
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         obstacleOffset = 20;
+        music.Play();
     }
 
     void FixedUpdate()
