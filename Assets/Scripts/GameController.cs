@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour
 {
     public List<GameObject> spawnedTiles = new List<GameObject>();
-    //public List<GameObject> spawnedObstacles = new List<GameObject>();
 
     public Playercontroller player;
 
@@ -21,7 +20,6 @@ public class GameController : MonoBehaviour
     public int offset;
     public int obstacleOffset;
     public int tileEntered;
-    public int obstacleSpawnRate;
 
     public int spawnedObstaclesCount = 0;
 
@@ -45,7 +43,6 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("Obstacle count: " + spawnedObstaclesCount);
         SpawnTiles(tileEntered);
         ResetTilesForSpawn();
         if (obstacleOffset < offset)
