@@ -30,13 +30,19 @@ public class SpawnBoundaryController : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-       
-        counter --;
+
+        if (other.gameObject.tag == "Tile")
+        {
+            counter--; 
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        counter ++;
+        if (other.gameObject.tag == "Tile")
+        {
+            counter++; 
+        }
     }
 
 }

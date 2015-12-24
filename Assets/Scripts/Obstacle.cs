@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Obstacle : MonoBehaviour {
+public class Obstacle : MonoBehaviour
+{
 
     public Renderer rend;
+
 
     private GameObject player;
 
@@ -14,7 +17,8 @@ public class Obstacle : MonoBehaviour {
         colors[0] = Color.red;
     }
 
-    void Start () {
+    void Start()
+    {
         rend.material.color = colors[0];
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -22,17 +26,15 @@ public class Obstacle : MonoBehaviour {
     void FixedUpdate()
     {
         StartCoroutine(DestroyOutOfSight());
-
     }
 
     IEnumerator DestroyOutOfSight()
     {
-        if (Time.deltaTime < 2f)
-        {
-            yield return new WaitForSeconds(1f);
-        }
         if (!rend.isVisible && player.transform.position.z > this.gameObject.transform.position.z)
         {
+            GameObject gameC = GameObject.Find("GameController");
+            GameController gameCS = gameC.GetComponent<GameController>();
+            gameCS.spawnedObstaclesCount--;
             Destroy(this.gameObject);
         }
         yield return new WaitForSeconds(2f);
